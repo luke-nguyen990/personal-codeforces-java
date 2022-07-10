@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/Users/luke_nguyen/Desktop/codeforces_java/.metadata/.plugins/org.eclipse.jdt.core
+2710549243.index
+1865797976.index
+3053609665.index
