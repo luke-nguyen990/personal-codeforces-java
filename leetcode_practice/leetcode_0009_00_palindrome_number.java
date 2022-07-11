@@ -1,4 +1,4 @@
-package leetcode_practice;
+
 
 public class leetcode_0009_00_palindrome_number {
 	public boolean isPalindrome(int x) {

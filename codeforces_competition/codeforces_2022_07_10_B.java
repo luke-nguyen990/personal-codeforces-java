@@ -1,8 +1,8 @@
-package date_2022_07_10;
+
 
 import java.util.Scanner;
 
-public class B {
+public class codeforces_2022_07_10_B {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		for (int i = scanner.nextInt(); i > 0; i--) {
