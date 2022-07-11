@@ -27,7 +27,6 @@ public class codeforces_1702C {
 				} else {
 					System.out.println("YES");
 				}
-
 			}
 		}
 		scanner.close();
