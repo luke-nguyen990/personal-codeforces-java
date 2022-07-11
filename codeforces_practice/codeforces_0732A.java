@@ -5,10 +5,9 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.io.IOException;
 
-public class A0732 {
+public class codeforces_0732A {
 
 	public static void main(String[] args) throws IOException {
-
 		BufferedReader bufferReader = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer stringTokenizer = new StringTokenizer(bufferReader.readLine());
 		int k = Integer.parseInt(stringTokenizer.nextToken());
