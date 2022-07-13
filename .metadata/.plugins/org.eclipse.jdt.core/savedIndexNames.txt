@@ -2,5 +2,4 @@ INDEX VERSION 1.131+/Users/luke_nguyen/Desktop/Eclipse/.metadata/.plugins/org.ec
 1193039810.index
 3053609665.index
 2923955221.index
-1654944010.index
 1865797976.index
