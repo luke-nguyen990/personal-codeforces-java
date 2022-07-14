@@ -1,7 +1,7 @@
 //https://leetcode.com/problems/remove-element/
 
 
-public class leetcode_0027_remove_element {
+public class leetcode_0027_00_remove_element {
 
 	public int removeElement(int[] A, int elem) {
 		int m = 0;
