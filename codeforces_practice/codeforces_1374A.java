@@ -10,6 +10,7 @@ public class codeforces_1374A {
 			int x = scanner.nextInt(), y = scanner.nextInt(), n = scanner.nextInt();
 			System.out.println(x*(n / x) + (x*(n / x) + y > n ? y - x : y));
 		}
+		scanner.close();
 	}
 
 }
