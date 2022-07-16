@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.lang.Math;
 public class codeforces_2022_07_12_C {
 
 	public static void main(String[] args) {
