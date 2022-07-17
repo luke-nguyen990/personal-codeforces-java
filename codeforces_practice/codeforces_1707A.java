@@ -14,10 +14,11 @@ public class codeforces_1707A {
 				arr[i] = scanner.nextInt();
 			}
 			for (int i = n - 1, t = 0; i >= 0; --i) {
-				if (t < q && arr[i] > t) {
-					t++;
+				if (arr[i] <= t) {
 					bool[i] = 1;
-				} else if (arr[i] <= t) {
+				}
+				else if(t < q) {
+					t++;
 					bool[i] = 1;
 				}
 			}
