@@ -1,9 +1,9 @@
 //https://codeforces.com/problemset/problem/1520/A
-
+ 
 import java.util.Scanner;
-
+ 
 public class codeforces_1520A {
-
+ 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		for (int numCases = scanner.nextInt(); numCases > 0; numCases--) {
@@ -25,5 +25,5 @@ public class codeforces_1520A {
 		}
 		scanner.close();
 	}
-
+ 
 }
