@@ -1,43 +1,34 @@
 //https://codeforces.com/contest/1706/problem/B
 
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class codeforces_1706B {
 
-	private static int countMax(ArrayList<Integer> indices) {
-		if (indices.size() == 0) {
-			return 0;
-		}
-		int cur = indices.get(0) % 2;
-		int ans = 1;
-		for (int i = 0; i < indices.size(); i++) {
-			if (cur != indices.get(i) % 2) {
-				ans++;
-				cur ^= 1;
-			}
-		}
-		return ans;
-	}
-
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner scanner = new Scanner(System.in);
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 		for (int numCases = scanner.nextInt(); numCases > 0; --numCases) {
 			int length = scanner.nextInt();
-			ArrayList<ArrayList<Integer>> allIndices = new ArrayList<>();
-			for(int i = 0; i < length; i++) {
-				allIndices.add(new ArrayList<Integer>());
-			}
+			int[] ans = new int[length];
+			int[] parities = new int[length];
+			Arrays.fill(parities, -1);
 			for (int i = 0; i < length; i++) {
 				int color = scanner.nextInt() - 1;
-				allIndices.get(color).add(i);
+				if (parities[color] == -1 || parities[color] != i % 2) {
+					ans[color]++;
+				}
+				parities[color] = i % 2;
 			}
-			for (int i = 0; i < length; i++) {
-				System.out.print(String.format("%d ", countMax(allIndices.get(i))));
-			} System.out.println();
+			for(int i = 0; i < length; i++) {
+				writer.write(ans[i] + " ");
+			} writer.write("\n");
 		}
 		scanner.close();
+		writer.flush();
 	}
 
 }
