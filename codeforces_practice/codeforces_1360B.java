@@ -1,7 +1,6 @@
 //https://codeforces.com/problemset/problem/1360/B
 
 import java.util.Scanner;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
