@@ -11,11 +11,12 @@ public class codeforces_0707A {
 		Scanner scanner = new Scanner(System.in);
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 		int r = scanner.nextInt();
-		scanner.nextInt();
+		int c = scanner.nextInt();
 		boolean colored = false;
-		for (int i = 0; i < r; i++) {
+		String colors = "YMC";
+		for (int i = 0; i < r * c; i++) {
 			String s = scanner.next();
-			if (s.contains("Y") || s.contains("M") || s.contains("C")) {
+			if(colors.contains(s)) {
 				colored = true;
 			}
 		}
@@ -25,3 +26,4 @@ public class codeforces_0707A {
 	}
 
 }
+
