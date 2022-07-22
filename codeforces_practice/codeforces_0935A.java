@@ -16,8 +16,8 @@ public class codeforces_0935A {
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = scanner.nextInt();
 		int ans = 0;
-		for(int i = 1; i <= n / 2; i++) {
-			if((n - i ) % i == 0) {
+		for (int i = 1; i <= n / 2; i++) {
+			if ((n - i) % i == 0) {
 				ans++;
 			}
 		}
