@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
 
-public class codeforces_1535_A {
+public class codeforces_1535A {
 
 	public static void main(String[] args) throws IOException {
 		Scanner scanner = new Scanner(System.in);
