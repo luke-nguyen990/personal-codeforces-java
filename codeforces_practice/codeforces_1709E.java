@@ -9,48 +9,83 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
+
 public class codeforces_1709E {
 
-	public static void fillXor(int[] xors, int[] as, int node, int pValue, ArrayList<ArrayList<Integer>> graph, HashSet<Integer> used) {
-		pValue = as[node] ^ pValue;
-		xors[node] = pValue;
-		for (int i = 0; i < graph.get(node).size(); i++) {
-			int child = graph.get(node).get(i);
-			if(used.contains(child)) {
-				continue;
-			}
-			used.add(child);
-			fillXor(xors, as, child, pValue, graph, used);
+	static int ans = 0;
+
+	public static void fillCumXors(int[] cumXors, int[] nodesValue, int node, int pNode,
+			ArrayList<ArrayList<Integer>> tree) {
+		cumXors[node] = nodesValue[node];
+		if (pNode != -1) {
+			cumXors[node] ^= cumXors[pNode];
 		}
+		for (int i = 0; i < tree.get(node).size(); i++) {
+			int cNode = tree.get(node).get(i);
+			if (cNode != pNode) {
+				fillCumXors(cumXors, nodesValue, cNode, node, tree);
+			}
+		}
+	}
+
+	public static boolean mergeSets(HashSet<Integer> bSet, HashSet<Integer> sSet, int pValue) {
+		boolean hasBadPath = false;
+		for (Integer sI : sSet) {			
+				hasBadPath |= bSet.contains(sI ^ pValue);			
+		}
+		for (Integer sI : sSet) {
+			bSet.add(sI);
+		}
+		sSet.clear();
+		return hasBadPath;
+	}
+
+	public static HashSet<Integer> count(int node, int pNode, int[] cumXors, ArrayList<ArrayList<Integer>> tree,
+			int[] nodesValue) {
+		HashSet<Integer> pSet = new HashSet<Integer>();
+		boolean hasBadPath = false;
+		pSet.add(cumXors[node]);
+		for (int i = 0; i < tree.get(node).size(); i++) {
+			int cNode = tree.get(node).get(i);
+			if (cNode != pNode) {
+				HashSet<Integer> cSet = count(cNode, node, cumXors, tree, nodesValue);
+				if (cSet.size() > pSet.size()) {
+					hasBadPath |= mergeSets(cSet, pSet, nodesValue[node]);
+					pSet = cSet;
+				} else {
+					hasBadPath |= mergeSets(pSet, cSet, nodesValue[node]);
+				}
+			}
+		}
+		if (hasBadPath) {
+			ans++;
+			return new HashSet<Integer>();
+		}
+		return pSet;
 	}
 
 	public static void main(String[] args) throws IOException {
 		Scanner scanner = new Scanner(System.in);
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 		int numVertices = scanner.nextInt();
-		int[] as = new int[numVertices];
+		int[] nodesValue = new int[numVertices];
 		for (int i = 0; i < numVertices; i++) {
-			as[i] = scanner.nextInt();
+			nodesValue[i] = scanner.nextInt();
 		}
-		ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> tree = new ArrayList<ArrayList<Integer>>();
 		for (int i = 0; i < numVertices; i++) {
-			graph.add(new ArrayList<>());
+			tree.add(new ArrayList<>());
 		}
 		for (int i = 0; i < numVertices - 1; i++) {
 			int u = scanner.nextInt() - 1, v = scanner.nextInt() - 1;
-			graph.get(u).add(v);
-			graph.get(v).add(u);
+			tree.get(u).add(v);
+			tree.get(v).add(u);
 		}
-		writer.write(String.valueOf(graph));
-		int[] xors = new int[numVertices];
-		HashSet<Integer>used = new HashSet<>();
-		used.add(0);
-		fillXor(xors, as, 0, 0, graph, used);
-		for(int x : xors) {
-			writer.write(x + " ");
-		}
+		int[] cumXors = new int[numVertices];
+		fillCumXors(cumXors, nodesValue, 0, -1, tree);
+		count(0, -1, cumXors, tree, nodesValue);
+		writer.write(ans + "\n");
 		writer.flush();
 		scanner.close();
 	}
