@@ -30,6 +30,7 @@ public class codeforces_1398D {
 			colors.add(color);
 		}
 		int[][][] DP = new int[counters[0] + 1][counters[1] + 1][counters[2] + 1];
+		int ans = Integer.MIN_VALUE;
 		for (int c0 = 0; c0 <= counters[0]; c0++) {
 			for (int c1 = 0; c1 <= counters[1]; c1++) {
 				for (int c2 = 0; c2 <= counters[2]; c2++) {
@@ -45,15 +46,7 @@ public class codeforces_1398D {
 						DP[c0][c1 + 1][c2 + 1] = Math.max(DP[c0][c1 + 1][c2 + 1],
 								DP[c0][c1][c2] + colors.get(1).get(c1) * colors.get(2).get(c2));
 					}
-					if (c0 + 1 <= counters[0]) {
-						DP[c0 + 1][c1][c2] = Math.max(DP[c0 + 1][c1][c2], DP[c0][c1][c2]);
-					}
-					if (c1 + 1 <= counters[1]) {
-						DP[c0][c1 + 1][c2] = Math.max(DP[c0][c1 + 1][c2], DP[c0][c1][c2]);
-					}
-					if (c2 + 1 <= counters[2]) {
-						DP[c0][c1][c2 + 1] = Math.max(DP[c0][c1][c2 + 1], DP[c0][c1][c2]);
-					}
+					ans = Math.max(ans, DP[c0][c1][c2]);
 				}
 			}
 		}
