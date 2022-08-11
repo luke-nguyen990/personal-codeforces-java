@@ -8,8 +8,6 @@ import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
 
 public class codeforces_1693A {
 
