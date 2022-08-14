@@ -2,8 +2,6 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.ArrayList;
 
 public class codeforces_2022_08_04_B {
 

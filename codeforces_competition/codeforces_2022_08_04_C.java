@@ -2,7 +2,6 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ArrayList;
 
