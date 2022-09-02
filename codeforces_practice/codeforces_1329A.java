@@ -4,7 +4,6 @@
  * @link https://codeforces.com/problemset/problem/1329/A
  */
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
