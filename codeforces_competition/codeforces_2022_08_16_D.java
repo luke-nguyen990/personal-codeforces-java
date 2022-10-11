@@ -2,9 +2,7 @@ import java.io.OutputStreamWriter;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.ArrayList;
+import java.util.*;
 
 public class codeforces_2022_08_16_D {
 
